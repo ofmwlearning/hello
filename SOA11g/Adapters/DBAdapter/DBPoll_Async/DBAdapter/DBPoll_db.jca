@@ -1,0 +1,21 @@
+<adapter-config name="DBPoll" adapter="Database Adapter" wsdlLocation="DBPoll.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory location="eis/db/FirstDataSource" UIConnectionName="soa" adapterRef=""/>
+  <endpoint-activation portType="DBPoll_ptt" operation="receive">
+    <activation-spec className="oracle.tip.adapter.db.DBActivationSpec">
+      <property name="DescriptorName" value="DBPoll.Employee"/>
+      <property name="QueryName" value="DBPollSelect"/>
+      <property name="MappingsMetaDataURL" value="DBPoll-or-mappings.xml"/>
+      <property name="PollingStrategy" value="LogicalDeletePollingStrategy"/>
+      <property name="MarkReadColumn" value="STATUS"/>
+      <property name="MarkReadValue" value="P"/>
+      <property name="MarkUnreadValue" value="N"/>
+      <property name="PollingInterval" value="5"/>
+      <property name="MaxRaiseSize" value="1"/>
+      <property name="MaxTransactionSize" value="10"/>
+      <property name="NumberOfThreads" value="1"/>
+      <property name="ReturnSingleResultSet" value="false"/>
+    </activation-spec>
+  </endpoint-activation>
+
+</adapter-config>
