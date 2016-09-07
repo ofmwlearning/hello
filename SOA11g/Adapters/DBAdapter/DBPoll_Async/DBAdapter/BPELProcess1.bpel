@@ -1,0 +1,44 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Fri Aug 19 08:50:53 IST 2016
+  Author:  Raji
+  Type: BPEL 2.0 Process
+  Purpose: Empty BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="BPELProcess1"
+               targetNamespace="http://xmlns.oracle.com/7AMBatch/DBAdapter/BPELProcess1"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/7AMBatch/DBAdapter/BPELProcess1"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/db/7AMBatch/DBAdapter/DBPoll"
+         xmlns:bpelx="http://schemas.oracle.com/bpel/extension">
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <partnerLinks>
+    <partnerLink name="DBPoll" partnerLinkType="ns1:DBPoll_plt"
+                 myRole="DBPoll_role"/>
+  </partnerLinks>
+  <variables>
+    <variable name="Receive1_receive_InputVariable"
+              messageType="ns1:EmployeeCollection_msg"/>
+    <variable name="Reply1_receive_OutputVariable" messageType="ns1:empty_msg"/>
+  </variables>
+  <sequence name="main">
+    <receive name="Receive1" createInstance="yes" partnerLink="DBPoll"
+             portType="ns1:DBPoll_ptt" operation="receive"
+             variable="Receive1_receive_InputVariable"/>
+    <reply name="Reply1" variable="Reply1_receive_OutputVariable"
+           partnerLink="DBPoll" portType="ns1:DBPoll_ptt" operation="receive"/>
+  </sequence>
+</process>
