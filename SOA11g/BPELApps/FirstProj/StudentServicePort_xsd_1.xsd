@@ -1,0 +1,51 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<xs:schema xmlns:tns="http://student.sample.student.sample.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+     version="1.0" targetNamespace="http://student.sample.student.sample.com/">
+    <xs:element name="avgOper" type="tns:avgOper"/>
+    <xs:element name="avgOperResponse" type="tns:avgOperResponse"/>
+    <xs:element name="gradeOper" type="tns:gradeOper"/>
+    <xs:element name="gradeOperResponse" type="tns:gradeOperResponse"/>
+    <xs:element name="printOper" type="tns:printOper"/>
+    <xs:element name="totalOper" type="tns:totalOper"/>
+    <xs:element name="totalOperResponse" type="tns:totalOperResponse"/>
+    <xs:complexType name="gradeOper">
+        <xs:sequence>
+            <xs:element name="avg" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="gradeOperResponse">
+        <xs:sequence>
+            <xs:element name="return" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="totalOper">
+        <xs:sequence>
+            <xs:element name="sub1" type="xs:int"/>
+            <xs:element name="sub2" type="xs:int"/>
+            <xs:element name="sub3" type="xs:int"/>
+            <xs:element name="sub4" type="xs:int"/>
+            <xs:element name="sub5" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="totalOperResponse">
+        <xs:sequence>
+            <xs:element name="totalResponse" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="printOper">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="avgOper">
+        <xs:sequence>
+            <xs:element name="tot" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="avgOperResponse">
+        <xs:sequence>
+            <xs:element name="return" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
+<!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. -->
