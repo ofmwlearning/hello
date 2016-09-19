@@ -3,7 +3,7 @@
 <composite name="DBAdapter"
            revision="1.0"
            label="2016-08-19_08-43-20_282"
-           mode="active"
+           mode="active234"
            state="on"
            xmlns="http://xmlns.oracle.com/sca/1.0"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
