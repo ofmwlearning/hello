@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+   <project name="Sample Project" default="folder">
+		<!--<property name="builddir" value="build"/>
+		<property name="srcdir" value="src"/>
+		<property name="jardir" value="jar"/>-->
+		<property file="java.properties"/>
+		<target name="folder">
+			<delete dir="${builddir}"/>
+			<mkdir dir="${builddir}"/>
+			<delete dir="${jardir}"/>
+			<mkdir dir="${jardir}"/>
+			<javac srcdir="${srcdir}" destdir="${builddir}"/>
+			<jar basedir="${builddir}" destfile="${jardir}/Hello.jar">
+				<!--<manifest>
+					<attribute name="Main-Class" value="Hello"/>
+				</manifest>-->
+			</jar>
+			<!--<java jar="Hello.jar" fork="true"/>-->
+			<java classname="Hello" fork="true">
+			<classpath>
+				<pathelement path="${jardir}/Hello.jar"/>
+			</classpath>
+			</java>
+			<echo>x value : ${x}</echo>
+		</target>
+		<target name="compile" depends="folder">
+			
+		</target>
+		<target name="package" depends="compile">
+			
+		</target>
+		
+		<target name="run" depends="package">
+			
+		</target>
+		
+		<target name="print" depends="run">
+			
+		</target>
+   </project>

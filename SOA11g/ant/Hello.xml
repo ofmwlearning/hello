@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+   <project name="Sample Project">
+   
+   <!--<target name="create">
+      <mkdir dir="src"/>
+   </target>-->
+   
+   <!--<target name="copy">
+		<copy file="src/bcd.xml" tofile="xyz.xml"/>
+   </target>-->
+   
+   <!--<target name="copy">
+		<copy file="src/bcd.xml" todir="build"/>
+   </target>-->
+   
+   <target name="copy">
+		<copy todir="build" verbose="true">
+			<fileset dir="src" includes="**/*.xml"/>
+		</copy>
+   </target>
+   
+   <target name="create">
+      <mkdir dir="src"/>
+   </target>
+   
+   <target name="delete">
+      <echo>Deleting folders</echo>
+	  <!-- if we want to delete single file -->
+	  <delete file="src\abc.xml" verbose="true"/>
+	  <!-- delete mulriple files in a folder -->
+	  <delete verbose="true">
+		<fileset dir="src" includes="**/build*.xml" excludes="build.xml"/>
+	  </delete>
+   </target>
+   
+</project>

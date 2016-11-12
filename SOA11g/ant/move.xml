@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+   <project name="Sample Project" default="move">
+	<!--<target name="copy">
+		<move file="src/bcd.xml" tofile="xyz.xml"/>
+   </target>-->
+   
+   <!--<target name="copy">
+		<move file="src/bcd.xml" todir="build"/>
+   </target>-->
+   
+   <target name="move">
+		<!--<move file="abc.txt" tofile="abc.txt" verbose="true"/>
+		<move file="bcd.xml" tofile="cha.xml" verbose="true"/>-->
+		<move todir="build" verbose="true">
+			<fileset dir="src" includes="**/*.xml"/>
+		</move>
+   </target>
+   </project>
